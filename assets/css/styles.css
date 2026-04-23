@@ -1,0 +1,105 @@
+
+body{
+  background:#dfe6e8;
+  font-family: Arial, Helvetica, sans-serif;
+  color:#18324a;
+}
+.top-brand{
+  background:#eadfbe;
+  border:1px solid #e1d3a8;
+}
+.brand-title{
+  color:#4b2d1b;
+  font-weight:800;
+  letter-spacing:.3px;
+}
+.brand-subtitle{
+  color:#7b140d;
+  font-weight:700;
+}
+.quick-link{
+  color:#0d6efd;
+  font-weight:700;
+  text-decoration:none;
+}
+.quick-link:hover{ text-decoration:underline; }
+
+.side-card{
+  border:1px solid #b7d9e8;
+  box-shadow:0 6px 18px rgba(0,0,0,.05);
+}
+.side-card .card-header{
+  background:#57b3cf;
+  color:#fff;
+  font-weight:800;
+}
+.empty-box{
+  min-height:72px;
+  border-radius:10px;
+  background:#f7f7f7;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.04), 0 2px 8px rgba(0,0,0,.03);
+}
+.main-nav{
+  border-bottom:1px solid #d9d9d9;
+}
+.main-nav .nav-link{
+  color:#2c3e50;
+  border-radius:0;
+  font-weight:500;
+}
+.main-nav .nav-link.active{
+  background:#f1f1f1;
+  border:1px solid #ddd;
+  border-bottom-color:#f1f1f1;
+}
+.btn-primary-soft{
+  background:#2f74b5;
+  border-color:#2f74b5;
+}
+.welcome-title{
+  font-weight:800;
+  color:#1f3a5a;
+  border-left:5px solid #ff7a00;
+  padding-left:12px;
+}
+.modules-box{
+  background:#f4efda;
+  border-left:6px solid #ff9d00;
+  border-radius:12px;
+}
+.modules-box li{
+  margin-bottom:12px;
+}
+.metric-card{
+  border:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+  border-radius:16px;
+}
+.metric-value{
+  font-size:2rem;
+  font-weight:800;
+  color:#1f3a5a;
+}
+.section-card{
+  border:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+  border-radius:18px;
+}
+.table thead th{
+  white-space:nowrap;
+}
+.badge-present{ background:#dff3e7; color:#1f6c3f; }
+.badge-late{ background:#fff1d8; color:#a35d00; }
+.badge-absent{ background:#fde2df; color:#aa2e25; }
+.badge-online{ background:#dff3e7; color:#1f6c3f; }
+.badge-offline{ background:#fde2df; color:#aa2e25; }
+.footer-note{
+  color:#5d6b79;
+  font-size:.92rem;
+}
+@media (max-width: 991.98px){
+  .top-brand .text-end{
+    text-align:left !important;
+    margin-top:10px;
+  }
+}

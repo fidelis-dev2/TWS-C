@@ -1,0 +1,107 @@
+{
+  "appName": "TeachWatch System",
+  "fullName": "Teaching Presence and Attendance Monitoring Platform",
+  "organization": "Cohema Company Limited",
+  "menu": [
+    "Home",
+    "Live Monitor",
+    "Attendance Reports",
+    "Room Devices",
+    "Lecturer Reminders",
+    "Download Proposal"
+  ],
+  "welcome": {
+    "title": "Welcome to TeachWatch System",
+    "text": [
+      "TeachWatch System is a smart platform for monitoring teaching attendance in lecture rooms.",
+      "It helps institutions know when a lecturer enters a room, whether the lecturer remains present during the session, and how long the lecturer spends in the room.",
+      "The system combines AI camera monitoring, biometric and RFID verification, timetable matching, reminders, and easy-to-read reports."
+    ],
+    "modulesTitle": "Main modules available in TeachWatch System"
+  },
+  "modules": [
+    "Lecturer Registration",
+    "Lecture Room Monitoring",
+    "Biometric + RFID Check-in / Check-out",
+    "AI Camera Presence Verification",
+    "Attendance Dashboard",
+    "Timetable Management",
+    "Attendance Reports",
+    "Email and SMS Reminders",
+    "Device Status Monitoring"
+  ],
+  "stats": [
+    {
+      "title": "Lectures Today",
+      "value": 24
+    },
+    {
+      "title": "Lecturers Present",
+      "value": 17
+    },
+    {
+      "title": "Late Lecturers",
+      "value": 3
+    },
+    {
+      "title": "Rooms Active",
+      "value": 12
+    }
+  ],
+  "attendanceRows": [
+    {
+      "lecturer": "Dr. John Mwakyusa",
+      "room": "LR-01",
+      "time": "08:00 - 10:00",
+      "status": "Present",
+      "duration": "2h 04m"
+    },
+    {
+      "lecturer": "Ms. Neema Joseph",
+      "room": "LAB-01",
+      "time": "09:00 - 11:00",
+      "status": "Late",
+      "duration": "1h 12m"
+    },
+    {
+      "lecturer": "Mr. Peter Lucas",
+      "room": "LR-02",
+      "time": "10:00 - 12:00",
+      "status": "Absent",
+      "duration": "0m"
+    },
+    {
+      "lecturer": "Dr. Grace Mushi",
+      "room": "HALL-01",
+      "time": "11:00 - 13:00",
+      "status": "Present",
+      "duration": "1h 01m"
+    }
+  ],
+  "deviceRows": [
+    {
+      "room": "LR-01",
+      "aiCamera": "Online",
+      "biometric": "Online",
+      "rfid": "Online"
+    },
+    {
+      "room": "LR-02",
+      "aiCamera": "Online",
+      "biometric": "Offline",
+      "rfid": "Online"
+    },
+    {
+      "room": "LAB-01",
+      "aiCamera": "Online",
+      "biometric": "Online",
+      "rfid": "Online"
+    },
+    {
+      "room": "HALL-01",
+      "aiCamera": "Online",
+      "biometric": "Online",
+      "rfid": "Online"
+    }
+  ]
+}

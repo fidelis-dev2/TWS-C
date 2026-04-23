@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TeachWatch System</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="top-brand py-3 mb-4">
+    <div class="container-fluid px-4">
+      <div class="row align-items-center">
+        <div class="col-lg-8 d-flex align-items-center gap-3">
+          <div class="rounded-circle bg-white border d-flex align-items-center justify-content-center" style="width:72px;height:72px;">
+            <i class="fa-solid fa-user-check fs-2 text-primary"></i>
+          </div>
+          <div>
+            <div class="brand-title fs-1" id="brandAppName">TeachWatch System</div>
+            <div class="brand-subtitle fs-4">Teaching Presence and Attendance Monitoring Platform</div>
+          </div>
+        </div>
+        <div class="col-lg-4 text-end">
+          <a href="#" id="loginLink" class="quick-link fs-5"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid px-4">
+    <div class="row g-4">
+      <div class="col-xl-4">
+        <div class="card side-card">
+          <div class="card-header fs-4 py-3"><i class="fa-solid fa-briefcase"></i> Overview</div>
+          <div class="card-body">
+            <div class="empty-box p-4 d-flex align-items-center">
+              <div class="text-muted fs-5">This area can be used for notices, quick summaries, or institution messages.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-8">
+        <ul class="nav nav-tabs main-nav mb-4 fs-5">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#live-monitor">Live Monitor</a></li>
+          <li class="nav-item"><a class="nav-link" href="#attendance-reports">Attendance Reports</a></li>
+          <li class="nav-item"><a class="nav-link" href="#room-devices">Room Devices</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reminders">Lecturer Reminders</a></li>
+          <li class="nav-item ms-auto"><button id="downloadAppBtn" class="btn btn-primary btn-primary-soft px-4">Download App</button></li>
+        </ul>
+
+        <div class="mb-4">
+          <h1 class="welcome-title display-6 mb-4" id="welcomeTitle">Welcome to TeachWatch System</h1>
+          <div id="welcomeText"></div>
+          <h2 class="text-center mt-4 mb-4" id="modulesTitle" style="font-family:monospace;"></h2>
+          <div class="modules-box p-4 p-md-5">
+            <ul id="modulesList" class="mb-0"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-2" id="metrics"></div>
+
+    <div class="row g-4 mt-1">
+      <div class="col-lg-8" id="live-monitor">
+        <div class="card section-card">
+          <div class="card-body">
+            <h3 class="mb-3">Live Attendance Monitor</h3>
+            <div class="table-responsive">
+              <table id="attendanceTable" class="table table-striped table-bordered align-middle nowrap w-100">
+                <thead>
+                  <tr>
+                    <th>Lecturer</th>
+                    <th>Room</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>Duration</th>
+                  </tr>
+                </thead>
+                <tbody id="attendanceRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card section-card">
+          <div class="card-body">
+            <h3 class="mb-3">Weekly Trend</h3>
+            <div style="height:320px">
+              <canvas id="attendanceTrendChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-1">
+      <div class="col-lg-7" id="room-devices">
+        <div class="card section-card">
+          <div class="card-body">
+            <h3 class="mb-3">Lecture Room Devices</h3>
+            <div class="table-responsive">
+              <table id="deviceTable" class="table table-striped table-bordered align-middle nowrap w-100">
+                <thead>
+                  <tr>
+                    <th>Room</th>
+                    <th>AI Camera</th>
+                    <th>Biometric</th>
+                    <th>RFID</th>
+                  </tr>
+                </thead>
+                <tbody id="deviceRows"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5" id="attendance-reports">
+        <div class="card section-card">
+          <div class="card-body">
+            <h3 class="mb-3">Attendance Status</h3>
+            <div style="height:320px">
+              <canvas id="statusChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-1 mb-5">
+      <div class="col-lg-12" id="reminders">
+        <div class="card section-card">
+          <div class="card-body">
+            <h3 class="mb-3">Lecturer Reminders</h3>
+            <p class="fs-5 mb-3">
+              TeachWatch System can automatically remind lecturers through <strong>Email</strong> and <strong>SMS</strong>
+              one hour before the scheduled lecture begins.
+            </p>
+            <div class="row g-3">
+              <div class="col-md-4">
+                <div class="p-4 rounded-4 border bg-light h-100">
+                  <h5><i class="fa-solid fa-envelope text-primary"></i> Email Reminder</h5>
+                  <p class="mb-0">Sends a professional reminder to the lecturer before lecture time.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-4 rounded-4 border bg-light h-100">
+                  <h5><i class="fa-solid fa-comment-sms text-success"></i> SMS Reminder</h5>
+                  <p class="mb-0">Notifies the lecturer quickly even when they are away from email.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-4 rounded-4 border bg-light h-100">
+                  <h5><i class="fa-solid fa-calendar-check text-warning"></i> Timetable-Based Trigger</h5>
+                  <p class="mb-0">Uses the approved timetable to send reminders automatically at the right time.</p>
+                </div>
+              </div>
+            </div>
+            <div class="footer-note mt-3">This page is a visual presentation demo only and is intended to show the expected look and user experience of the system.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      $('#attendanceTable').DataTable({responsive:true, pageLength:5, lengthMenu:[[5,10,25,-1],[5,10,25,'All']]});
+      $('#deviceTable').DataTable({responsive:true, paging:false, searching:false, info:false});
+    });
+  </script>
+</body>
+</html>
